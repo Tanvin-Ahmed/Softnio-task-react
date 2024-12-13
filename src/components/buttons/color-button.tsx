@@ -1,3 +1,5 @@
+import { data } from "../../data/data";
+
 interface Props {
   selectedItem: SelectedItem;
   color: string;
@@ -5,6 +7,10 @@ interface Props {
 }
 
 const ColorButton = ({ color, selectedItem, update }: Props) => {
+  const colorName = Object.keys(
+    data.colors.find((colorObj) => Object.values(colorObj)[0] === color)!
+  )[0];
+
   return selectedItem.color === color ? (
     <button
       type="button"
@@ -25,7 +31,7 @@ const ColorButton = ({ color, selectedItem, update }: Props) => {
         backgroundColor: color,
       }}
       className="w-4 h-4 rounded-full border-none outline-none flex justify-center items-center transition-all duration-300 ease-in-out"
-      onClick={() => update({ color })}
+      onClick={() => update({ color, image: `./assets/${colorName}.png` })}
     />
   );
 };

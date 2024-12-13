@@ -4,6 +4,7 @@ type SelectedItem = {
   price: { actualPrice: number; offerPrice: number };
   color: string;
   count: number;
+  image: string;
 };
 
 type CartList = SelectedItem[];
