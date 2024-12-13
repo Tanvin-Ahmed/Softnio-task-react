@@ -52,7 +52,7 @@ const Details = () => {
   }, [selectedItem, cart]);
 
   return (
-    <div className="lg:grid grid-cols-12 gap-4 space-y-20 lg:space-y-0 relative">
+    <div className="lg:grid grid-cols-12 gap-4 space-y-20 lg:space-y-0">
       <section className="col-span-6">
         <img
           src={selectedItem.image}
@@ -61,7 +61,7 @@ const Details = () => {
         />
       </section>
       <section className="col-span-6 w-full h-full flex flex-col justify-center">
-        <h1 className="font-bold text-4xl text-[#364A63]">
+        <h1 className="font-bold text-2xl sm:text-4xl text-[#364A63]">
           Classy Modern Smart watch
         </h1>
         <div className="flex items-center gap-1.5 mt-5">
@@ -75,10 +75,10 @@ const Details = () => {
 
         <div className="mt-8 space-y-5">
           <div className="flex items-center gap-2">
-            <p className="text-[#8091A7] text-xl line-through">
+            <p className="text-[#8091A7] text-lg sm:text-xl line-through">
               ${selectedItem.price.actualPrice}.00
             </p>
-            <p className="text-[#6576FF] font-bold text-2xl">
+            <p className="text-[#6576FF] font-bold text-xl sm:text-2xl">
               ${selectedItem.price.offerPrice}.00
             </p>
           </div>
@@ -120,7 +120,7 @@ const Details = () => {
 
           <div className="space-y-3">
             <p className="text-lg text-[#364A63] font-bold">Wrist Size</p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-wrap">
               {data.sizes.map((size, index) => (
                 <SizeButton
                   key={size}
@@ -133,7 +133,7 @@ const Details = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap">
             <CountButton update={setSelectedItem} count={selectedItem.count} />
             <AddToCartButton handleAddToCart={handleAddToCart} />
             <FaRegHeart className="text-[#6576FF] cursor-pointer text-xl" />
